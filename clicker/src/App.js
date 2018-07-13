@@ -5,7 +5,7 @@ import imgdata from "./imgdata.json";
 import Img from "./components/Img";
 import Wrapper from "./components/Wrapper";
 import Nav from "./components/Nav";
-import Score from "./components/Nav";
+import Score from "./components/Scorecard";
 
 class App extends Component {
   //Establish initial state
@@ -39,6 +39,7 @@ class App extends Component {
         //change the score
         score: this.state.score + 1
       })
+     
     //if an image has been clicked
     } else {
       this.setState({
@@ -46,8 +47,9 @@ class App extends Component {
         clicked: [],
         score: 0
       })
+
     }
-    console.log("Clicked");
+    //console.log("Clicked");
   }
   componentDidMount() {
     
@@ -57,8 +59,9 @@ class App extends Component {
     return (
       <div>
         <Nav />
-        <Score />
-        <p>{this.state.score}</p>
+        <Score> 
+        <h1>{this.state.score}</h1>
+        </Score>
         <Wrapper>
           <div id="img-container" className="col-lg-3 col-md-3">
           {this.state.paintings.map(image => (
